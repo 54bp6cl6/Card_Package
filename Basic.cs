@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 namespace CardClass
 {
 
-    /// <summary> 撲克牌類別 </summary>
+	/// <summary> 撲克牌類別 </summary>
 	public struct Card
-    {
+	{
 		/// <summary>
 		/// 撲克牌的四種花色(spade黑桃, heart紅心, diamond方塊, club梅花),
 		///  none 可以用作鬼牌或特殊用途
@@ -19,16 +19,16 @@ namespace CardClass
 		/// <summary> 代表牌的花色 </summary>
 		public Suits suit;
 
-        /// <summary>
+		/// <summary>
 		/// 代表牌的點數
 		/// </summary>
 		public string rank;
 
-        public Card(Suits suit, string rank)
-        {
-            this.suit = suit;
-            this.rank = rank;
-        }
+		public Card(Suits suit, string rank)
+		{
+			this.suit = suit;
+			this.rank = rank;
+		}
 
 		/// <summary>
 		/// 比較兩張卡的花色、點數是否相同
@@ -50,7 +50,7 @@ namespace CardClass
 			if (this.suit == Suits.none) return false;
 			else
 			{
-				foreach(string s in new string[] { "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" })
+				foreach (string s in new string[] { "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" })
 				{
 					if (rank == s) return true;
 				}
@@ -65,7 +65,7 @@ namespace CardClass
 		/// <returns></returns>
 		public bool IsLegal(List<Card> sample)
 		{
-			foreach(Card sc in sample)
+			foreach (Card sc in sample)
 			{
 				if (sc.Equals(this)) return true;
 			}
@@ -130,35 +130,35 @@ namespace CardClass
 		}
 	}
 
-    /// <summary>
+	/// <summary>
 	/// 提供對撲克牌的基本操作
 	/// </summary>
 	public static class Dealer
-    {
-        /// <summary>
+	{
+		/// <summary>
 		/// 輸出一組沒有鬼牌的撲克牌組
 		/// </summary>
 		public static List<Card> GetDeckOfCard()
-        {
-            string[] ranks = { "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
-            List<Card> output = new List<Card>();
-            foreach (string r in ranks)
-            {
-                output.Add(new Card(Card.Suits.spade, r));
-                output.Add(new Card(Card.Suits.heart, r));
-                output.Add(new Card(Card.Suits.diamond, r));
-                output.Add(new Card(Card.Suits.club, r));
-            }
-            return output;
-        }
+		{
+			string[] ranks = { "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
+			List<Card> output = new List<Card>();
+			foreach (string r in ranks)
+			{
+				output.Add(new Card(Card.Suits.spade, r));
+				output.Add(new Card(Card.Suits.heart, r));
+				output.Add(new Card(Card.Suits.diamond, r));
+				output.Add(new Card(Card.Suits.club, r));
+			}
+			return output;
+		}
 
-        /// <summary>
+		/// <summary>
 		/// 將傳入的牌組洗牌
 		/// </summary>
 		/// <param name="hand"></param>
 		public static void Shuffle(List<Card> hand)
-        {
-            Random random = new Random();
+		{
+			Random random = new Random();
 
 			for (int n = hand.Count - 1; n > 0; --n)
 			{
@@ -169,18 +169,18 @@ namespace CardClass
 			}
 		}
 
-        /// <summary>
+		/// <summary>
 		/// 從 參數1 中抽出前 num 張卡牌放到 參數2 中(參數1中的卡牌會消失)
 		/// </summary>
 		/// <param name="from"></param>
 		/// <param name="to"></param>
 		/// <param name="num"></param>
 		public static void DrawCard(List<Card> from, List<Card> to, int num)
-        {
-            for(int i = 0; i < num; i++)
-            {
-                to.Add(from[i]);
-            }
+		{
+			for (int i = 0; i < num; i++)
+			{
+				to.Add(from[i]);
+			}
 			for (int i = 0; i < num; i++)
 			{
 				from.RemoveAt(0);
@@ -212,9 +212,9 @@ namespace CardClass
 		/// <returns></returns>
 		public static int FindCardIndex(List<Card> from, Card card)
 		{
-			foreach(Card c in from)
+			foreach (Card c in from)
 			{
-				if(c.Equals(card))
+				if (c.Equals(card))
 				{
 					return from.IndexOf(c);
 				}
@@ -239,5 +239,5 @@ namespace CardClass
 			}
 			return -1;
 		}
-    }
+	}
 }
