@@ -3,7 +3,8 @@ A C# ClassLibrary(dll) for card games. Helping you to create a card games quickl
 There are some class like card, player, etc.,   
 and some basic operations of poker games, such as shuffles, draws and more.
 
-一個C#類別庫(dll)，專為撲克牌遊戲而設計。裡面提供了撲克牌、玩家等類別，與一些撲克牌遊戲的基本操作，如洗牌、抽牌等等。  
+一個C#類別庫(dll)，專為撲克牌遊戲而設計。  
+裡面提供了撲克牌、玩家等類別，與一些撲克牌遊戲的基本操作，如洗牌、抽牌等等。  
 basic.cs 為原始碼  
 CardClass.dll 為程式
 
